@@ -1,0 +1,1 @@
+driver/product/kernel/* usr/src/cix-gpu-${env:DEB_VERSION_UPSTREAM}/

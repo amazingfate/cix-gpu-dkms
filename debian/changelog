@@ -1,0 +1,5 @@
+cix-gpu-dkms (0.01-1) stable; urgency=medium
+
+  * Initial release.
+
+ -- Jianfeng Liu <liujianfeng1994@gmail.com>  Mon, 03 Mar 2025 15:14:20 +0800

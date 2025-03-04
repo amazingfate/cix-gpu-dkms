@@ -1,0 +1,32 @@
+PACKAGE_VERSION="0.01"
+PACKAGE_NAME="cix-gpu"
+BUILD_EXCLUSIVE_ARCH="arm64|aarch64"
+
+MAKE[0]="make \
+-C $dkms_tree/$PACKAGE_NAME/$PACKAGE_VERSION/build/drivers/gpu/arm \
+CONFIG_MALI_BASE_MODULES=y \
+CONFIG_MALI_PLATFORM_NAME="sky1" \
+CONFIG_MALI_CSF_SUPPORT=y \
+CONFIG_MALI_CIX_POWER_MODEL=y && \
+make \
+-C $dkms_tree/$PACKAGE_NAME/$PACKAGE_VERSION/build/drivers/base/arm \
+CONFIG_MALI_BASE_MODULES=y \
+CONFIG_MALI_PLATFORM_NAME="sky1" \
+CONFIG_MALI_CSF_SUPPORT=y \
+CONFIG_MALI_MEMORY_GROUP_MANAGER=y \
+CONFIG_MALI_PROTECTED_MEMORY_ALLOCATOR=y \
+CONFIG_MALI_CIX_POWER_MODEL=y"
+
+DEST_MODULE_LOCATION[0]="/extra"
+BUILT_MODULE_NAME[0]="mali_kbase"
+BUILT_MODULE_LOCATION[0]="drivers/gpu/arm/midgard"
+
+BUILT_MODULE_NAME[1]="memory_group_manager"
+DEST_MODULE_LOCATION[1]="/extra"
+BUILT_MODULE_LOCATION[1]="drivers/base/arm/memory_group_manager"
+
+BUILT_MODULE_NAME[2]="protected_memory_allocator"
+DEST_MODULE_LOCATION[2]="/extra"
+BUILT_MODULE_LOCATION[2]="drivers/base/arm/protected_memory_allocator"
+
+AUTOINSTALL="yes"
